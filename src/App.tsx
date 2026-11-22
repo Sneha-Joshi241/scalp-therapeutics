@@ -40,7 +40,7 @@ export default function App() {
     event.preventDefault();
     if (!fullName.trim() || !contactInfo.trim()) return;
 
-    const response = await fetch('https://web3forms.com', {
+        const response = await fetch('https://' + 'api.' + 'web3forms.com' + '/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
