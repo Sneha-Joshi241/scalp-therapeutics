@@ -55,8 +55,14 @@ export default function App() {
       }),
     });
 
-    const data = await response.json();
-    if (data.success) setSubmitted(true);
+        const data = await response.json();
+    if (data.success) {
+      setFullName('');
+      setContactInfo('');
+      setCityOrOrg('');
+      setNotes('');
+      setSubmitted(true);
+    }
   };
   const resetForm = () => {
     setFullName('');
@@ -65,7 +71,6 @@ export default function App() {
     setNotes('');
     setSubmitted(false);
   };
-
   return (
     <div id="top" className="min-h-screen bg-[#F9FAF8] text-[#13221D]">
       {/* Top Bar Contract: Single row, 3 strict zones */}
@@ -548,7 +553,7 @@ export default function App() {
                         : 'Collaboration Inquiry Sent'}
                     </h3>
                     <p className="text-sm text-[#4A5D56] leading-relaxed">
-                      Thank you, {fullName}. Your details have been delivered directly to Sneha Joshi.
+                      Thank you! 
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                       <button
