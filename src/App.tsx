@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { Check, Copy, Mail } from 'lucide-react';
+import { ArrowRight, Check, Copy, Mail } from 'lucide-react';
 import { MECHANISM_STAGES, MechanismStageId, TDS_ZONES } from './data/deckData';
 import { FollicleDiagram } from './components/FollicleDiagram';
 
@@ -170,7 +170,7 @@ export default function App() {
                   className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-[#0F5C4D] hover:bg-[#0B463A] rounded-lg transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0F5C4D]"
                 >
                   <span>Explore 3-Step Routine</span>
-                  <span aria-hidden="true">→</span>
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </a>
               </div>
             </div>
