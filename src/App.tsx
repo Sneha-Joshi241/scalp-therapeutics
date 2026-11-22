@@ -36,12 +36,28 @@ export default function App() {
     }
   };
 
-  const handleSubmit = (event: FormEvent) => {
+    const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (!fullName.trim() || !contactInfo.trim()) return;
-    setSubmitted(true);
-  };
 
+    const response = await fetch('https://web3forms.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: '01209742-c2a8-415b-b604-293e3852b9d1',
+        subject: `${inquiryTrack === 'pilot' ? 'Pilot Waitlist' : 'R&D Inquiry'} — ${fullName}`,
+        inquiry_type: inquiryTrack === 'pilot' ? 'Pilot / Pre-Order' : 'GMP / R&D Collaboration',
+        full_name: fullName,
+        contact_info: contactInfo,
+        city_or_organization: cityOrOrg,
+        details: inquiryTrack === 'pilot' ? waterSource : collaborationArea,
+        message: notes,
+      }),
+    });
+
+    const data = await response.json();
+    if (data.success) setSubmitted(true);
+  };
   const resetForm = () => {
     setFullName('');
     setContactInfo('');
