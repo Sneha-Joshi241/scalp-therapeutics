@@ -542,33 +542,15 @@ export default function App() {
 
                 {submitted ? (
                   <div className="py-10 text-center space-y-4 max-w-md mx-auto">
-                    <h3 className="font-display text-xl font-semibold text-[#13221D]">
+                                        <h3 className="font-display text-xl font-semibold text-[#13221D]">
                       {inquiryTrack === 'pilot'
-                        ? 'Pilot Waitlist Request Prepared'
-                        : 'Collaboration Note Prepared'}
+                        ? 'Pilot Waitlist Request Sent'
+                        : 'Collaboration Inquiry Sent'}
                     </h3>
                     <p className="text-sm text-[#4A5D56] leading-relaxed">
-                      Thank you, {fullName}. Click below to send these details directly to Sneha
-                      Joshi via your email app, or reset to edit.
+                      Thank you, {fullName}. Your details have been delivered directly to Sneha Joshi.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                      <a
-                        href={`mailto:joshisneha241@gmail.com?subject=${encodeURIComponent(
-                          inquiryTrack === 'pilot'
-                            ? `Pilot Waitlist / Pre-Order — ${fullName}`
-                            : `R&D Collaboration Inquiry — ${fullName}`
-                        )}&body=${encodeURIComponent(
-                          `Name: ${fullName}\nContact: ${contactInfo}\nCity / Organization: ${cityOrOrg}\n${
-                            inquiryTrack === 'pilot'
-                              ? `Water Supply: ${waterSource}`
-                              : `Collaboration Area: ${collaborationArea}`
-                          }\nNotes: ${notes}`
-                        )}`}
-                        className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-medium text-white bg-[#0F5C4D] hover:bg-[#0B463A] rounded-lg transition-colors"
-                      >
-                        <span>Send via Email App</span>
-                        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      </a>
                       <button
                         type="button"
                         onClick={resetForm}
@@ -577,6 +559,7 @@ export default function App() {
                         Submit Another
                       </button>
                     </div>
+
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
